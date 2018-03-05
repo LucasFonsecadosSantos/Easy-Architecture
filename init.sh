@@ -6,6 +6,7 @@
 reset
 echo '+==================================================+'
 echo '+          FRONT END WEB PROJECT MANAGER           +'
+echo '+           by Lucas Fonseca dos Santos            +'
 echo '+==================================================+'
 echo ''
 echo 'Script written by Lucas Fonseca dos Santos.'
