@@ -40,28 +40,20 @@ else
 	echo '[X] ERROR: There was some problem with the directories creation.'
 fi
 echo ''
-echo '[..] Changing to ' $HOME/$1
-cd $HOME/$1
-echo '[OK] Directory accessed!'
-echo ''
-echo '[..] Changing to src/'
-cd src
-echo '[OK] Directory accessed!'
-echo ''
 echo '[..] Creating the remaining directories'
-mkdir -p ext/sass/libs
+mkdir -p $HOME/$1/src/ext/sass/libs
+echo '[OK] Directory ' {!$} ' created.'
+mkdir -p $HOME/$1/src/ext/css
 echo '[OK] Directory ' !$ ' created.'
-mkdir -p ext/css
+mkdir -p $HOME/$1/src/ext/pug
 echo '[OK] Directory ' !$ ' created.'
-mkdir -p ext/pug
+mkdir -p $HOME/$1/src/ext/php
 echo '[OK] Directory ' !$ ' created.'
-mkdir -p ext/php
+mkdir -p $HOME/$1/src/ext/fonts
 echo '[OK] Directory ' !$ ' created.'
-mkdir -p ext/fonts
+mkdir -p $HOME/$1/src/ext/js
 echo '[OK] Directory ' !$ ' created.'
-mkdir -p ext/js
-echo '[OK] Directory ' !$ ' created.'
-mkdir img
+mkdir $HOME/$1/src/img
 echo '[OK] Directory ' !$ ' created.'
 echo ''
 echo '[..] Configuring the files'
@@ -69,14 +61,16 @@ echo '[..] Downloading the Bootstrap version 4'
 sudo wget --directory-prefix=$HOME/$1/src/ext/sass/ http://github.com/twbs/bootstrap/archive/v4.0.0-alpha.6.zip
 echo '[OK] Download successfully!'
 echo '[..] Extracting the Bootstrap core files'
-for entry in "$HOME/$1/src/ext/sass"/*
+for entry in "$HOME/$1/src/ext/sass"/*.zip
 do
-	unzip $entry
+	sudo unzip -d $HOME/$1/src/ext/sass $entry
 	echo '[OK] Files extracted.'
-	echo '[..] Deleting the zip source files.'
-	rm $entry
 done
-echo '[OK] Zip file deleted.'
 echo '[..] Copying the Bootstrap core files to libs directory.'
-mv $HOME/$1/src/ext/sass/v4.0.0-alpha.6/scss ./libs
+sudo mv $HOME/$1/src/ext/sass/bootstrap-4.0.0-alpha.6/scss/* $HOME/$1/src/ext/sass/libs/
 echo '[OK] Files copied.'
+echo '[..] Deleting the zip source files.'
+sudo rm -r $HOME/$1/src/ext/sass/bootstrap-4.0.0-alpha.6
+sudo rm $HOME/$1/src/ext/sass/v4.0.0-alpha.6.zip
+echo '[OK] Zip file deleted.'
+
