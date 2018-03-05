@@ -22,24 +22,42 @@ $ cd FrontEnd-WebProject-Manager/
 Continuing then
 
 ```
-$ sudo chmod +x init.sh
-$ ./TurboFire.sh <version>
+$ sudo chmod +x init.sh compile_sass.sh compile_pug.sh
+$ ./init.sh <project_name>
 ```
 
-Where the version is `slave` or `master`.
-If the version is `slave`, then:
+Where the project_name is your project name rs.
+The project directory will be created in:
 
 ```
-$ ./TurboFire.sh slave <master_machine_ip_address> <master_machine_port>
+$ $HOME/project_name
+```
+Where $HOME is your main directory as: /home/user.
+For access the project:
+
+```
+$ cd $HOME/project_name
 ```
 
-Or if the version is `master`, then:
+## Execute the SASS and PUG compiler
+In project directory
 
 ```
-$ ./TurboFire.sh master
+$HOME/project_name
 ```
 
+execute the following bash scripts:
+
+```
+$ ./compile_sass.sh
+```
+
+and to execute the PUG compiler, you have to open another bash or terminal emulador and you need to execute the other bash script:
+
+```
+$ ./compile_pug.sh
+```
 ## Authors
 * **Lucas Fonseca dos Santos** - *Computer Science student of Federal University of Lavras* - lucas@lcfcompany.com.br
 ## License
-This project is licensed under  GNU GENERAL PUBLIC LICENSE.
+This project is licensed under no license. Copyleft is freedom!
