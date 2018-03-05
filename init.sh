@@ -63,3 +63,20 @@ mkdir -p ext/js
 echo '[OK] Directory ' !$ ' created.'
 mkdir img
 echo '[OK] Directory ' !$ ' created.'
+echo ''
+echo '[..] Configuring the files'
+echo '[..] Downloading the Bootstrap version 4'
+sudo wget --directory-prefix=$HOME/$1/src/ext/sass/ http://github.com/twbs/bootstrap/archive/v4.0.0-alpha.6.zip
+echo '[OK] Download successfully!'
+echo '[..] Extracting the Bootstrap core files'
+for entry in "$HOME/$1/src/ext/sass"/*
+do
+	unzip $entry
+	echo '[OK] Files extracted.'
+	echo '[..] Deleting the zip source files.'
+	rm $entry
+done
+echo '[OK] Zip file deleted.'
+echo '[..] Copying the Bootstrap core files to libs directory.'
+mv $HOME/$1/src/ext/sass/v4.0.0-alpha.6/scss ./libs
+echo '[OK] Files copied.'
