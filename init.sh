@@ -17,34 +17,48 @@ sleep 2
 ###############################################################################
 ### VERIFYING THE DEPENDENCIES												 ##
 ###############################################################################
-if ! [ -x "$(command -v htop)" ]; then
-	echo "peba"
+if ! [ -x "$(command -v ruby)" ]; then
+	echo '[X] ERROR: The Ruby package is not installed!' >&2
+	#case the system is ubuntu
 	if [ -x "$(uname -a | grep ubuntu)"]; then
 		sudo apt-get update
-		sudo apt-get install htop
+		sudo apt-get install ruby
 	fi
+else
+	echo '[OK] Ruby is installed.'
+fi
+
+if ! [ -x "$(command -v nodejs)" ]; then
+	echo '[X] ERROR: The NODEjs package is not installed!' >&2
+	#case the system is ubuntu
+	if [ -x "$(uname -a | grep ubuntu)"]; then
+		sudo apt-get update
+		sudo apt-get install nodejs
+	fi
+else
+	echo '[OK] Ruby is installed.'
 fi
 
 if ! [ -x "$(command -v sass)" ]; then
 	echo '[X] ERROR: The SASS pre compiler package is not installed!' >&2
-	exit 1
+	#case the system is ubuntu
+	if [ -x "$(uname -a | grep ubuntu)"]; then
+		sudo gem install sass
+	fi
 else
 	echo '[ OK] SASS is installed.'
 fi
 
 if ! [ -x "$(command -v pug)" ]; then
 	echo '[X] ERROR: The PUG pre compiler package is not installed!' >&2
-	exit 1
+	#case the system is ubuntu
+	if [ -x "$(uname -a | grep ubuntu)"]; then
+		npm install pug-cli -g
+	fi
 else
 	echo '[OK] PUG is installed.'
 fi
 
-if ! [ -x "$(command -v ruby)" ]; then
-	echo '[X] ERROR: The Ruby package is not installed!' >&2
-	exit 1
-else
-	echo '[OK] Ruby is installed.'
-fi
 
 ###############################################################################
 ### CREATING THE DIRECTORIES												 ##
@@ -103,9 +117,17 @@ echo '[..] Deleting the zip source files.'
 sudo rm -r $HOME/$1/src/ext/sass/bootstrap-4.0.0-alpha.6
 sudo rm $HOME/$1/src/ext/sass/v4.0.0-alpha.6.zip
 echo '[OK] Zip file deleted.'
+
+###############################################################################
+### COPYING SOME FILES														 ##
+###############################################################################
 echo '[..] Copying the SASS and PUG compiler bash scripts to ' $HOME/$s1 ' directory.'
 sudo cp -avr ./exec_scripts/compile_sass.sh ./exec_scripts/compile_pug.sh $HOME/$1/
 echo '[OK] Compiler files copied!'
+
+###############################################################################
+### CREATUBG SOME FILES														 ##
+###############################################################################
 echo '[..] Creating some files.'
 touch $HOME/$1/src/ext/sass/core.sass
 touch $HOME/$1/src/ext/sass/variables.sass
@@ -114,6 +136,10 @@ touch $HOME/$1/src/ext/pug/include/footer.pug
 touch $HOME/$1/src/ext/pug/include/header.pug
 touch $HOME/$1/src/ext/pug/include/index_main.pug
 touch $HOME/$1/src/ext/js/core.js
+
+###############################################################################
+### WRITING FILES															 ##
+###############################################################################
 echo '[..] Writing the core.sass file.'
 cat ./config/sass_config.txt >> $HOME/$1/src/ext/sass/core.sass
 echo '[OK] DONE.'
