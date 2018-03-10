@@ -1,0 +1,184 @@
+// DEVELOPED BY: Lucas Fonsceca dos Santos.
+// GPL - General Public License v3.0
+///////////////////////////////////////////////////////////////////////////////////
+///                                                                             ///
+/// [PROJECT]: Name: null                                                       ///
+///            URL:  null                                                       ///
+///            GIT:  <Link não disponivel. GIT server privado>                  ///
+/// +-------------------------------------------------------------------------+ ///
+///                                                                             ///
+/// [DEVELOPMENT]:  Code Developer:   Lucas Fonseca dos Santos.                 ///
+///                 System Developer: Lucas Fonseca dos Santos.                 ///
+///                 Design Creater:   Lucas Fonseca dos Santos.                 ///
+///                 Tester:           Lucas Fonseca dos Santos.                 ///
+/// +-------------------------------------------------------------------------+ ///
+///                                                                             ///
+/// [INFORMATIONS]: Fonts:  Ubuntu, 300, 400, 500, 700                          ///
+///                         Open Sans, 300, 400, 600, 700                       ///
+///                         Open Sans Condensed, 300, 700                       ///
+///                 Colors: #000000                                             ///
+///                         #000000                                             ///
+///                         #000000                                             ///
+///                         #000000                                             ///
+/// +-------------------------------------------------------------------------+ ///
+///                                                                             ///
+///   Use .content to write class .container by bootstrap and .line to write    ///
+///   .row class by bootstrap.                                                  ///
+///                                                                             ///
+///   Use mixin extend_grid() with the params: LG value, MD value, SM value,    ///
+///   XS value in respective order to extend grid system of bootstrap.          ///
+///                                                                             ///
+///////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////
+///                              FILE INFORMATION                               ///
+///-----------------------------------------------------------------------------///
+/// [NAME]: Core                                                                ///
+/// [CONTENT]: Responsible for all front end struct.                            ///
+///////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+*
+   font-size: 100%
+   margin:    0px auto
+   padding:   0px
+
+
+
+
+
+
+//---------------------------[ IMPORTS ]-----------------------------------------//
+@import "libs/scss/bootstrap.scss"
+@import "variables.sass"
+//-------------------------------------------------------------------------------//
+
+
+
+
+
+//----------------------------------[ MIXINS ]-----------------------------------//
+@mixin transform_translateX($param)
+   transform:           translateX($param)
+   -o-transform:        translateX($param)
+   -ms-transform:       translateX($param)
+   -moz-transform:      translateX($param)
+   -webkit-transform:   translateX($param)
+
+@mixin transform_translateY($param)
+   transform:           translateY($param)
+   -o-transform:        translateY($param)
+   -ms-transform:       translateY($param)
+   -moz-transform:      translateY($param)
+   -webkit-transform:   translateY($param)
+
+@mixin border_radius($param)
+   border-radius:         $param
+   -o-border-radius:      $param
+   -ms-border-radius:     $param
+   -moz-border-radius:    $param
+   -webkit-border-radius: $param
+
+@mixin transform_rotate($param)
+    transform: rotate($param)
+    -o-transform: rotate($param)
+    -ms-transform: rotate($param)
+    -moz-transform: rotate($param)
+    -webkit--transform: rotate($param)
+
+@mixin gradient_background($param1, $param2, $param3)
+   background: $param2
+   linear-gradient($param1, $param2 , $param3)
+   -o-linear-gradient($param1, $param2 , $param3)
+   -ms-linear-gradient($param1, $param2 , $param3)
+   -moz-linear-gradient($param1, $param2 , $param3)
+   -webkit-linear-gradient($param1, $param2 , $param3) 
+
+@mixin filter($param)
+   filter:         $param
+   -o-filter:      $param
+   -ms-filter:     $param
+   -moz-filter:    $param
+   -webkit-filter: $param
+
+@mixin responsive_system($param1, $param2, $param3, $param4)
+   @extend .col-lg-#{$param1}
+   @extend .col-md-#{$param2}
+   @extend .col-sm-#{$param3}
+   @extend .col-xs-#{$param4}
+//-------------------------------------------------------------------------------//
+
+
+
+
+
+//----------------------------------[ FONTS ]------------------------------------//
+p
+h1
+h2
+h3
+h4
+h5
+h6
+label
+a
+//-------------------------------------------------------------------------------//
+
+
+
+
+
+
+//----------------------------------[ SUPERCLASS ]-------------------------------//
+.transitions
+   transition:          $__ANIMATION__TIME__
+   -o-transition:       $__ANIMATION__TIME__
+   -ms-transition:      $__ANIMATION__TIME__
+   -moz-transition:     $__ANIMATION__TIME__
+   -webkit-transition:  $__ANIMATION__TIME__
+
+.content
+    @extend .container
+
+.line 
+    @extend .row
+//-------------------------------------------------------------------------------//
+
+
+
+
+
+
+//-----------------------------------[ FORMS ]-----------------------------------//
+input, textarea, select
+button
+table
+    th
+    tr
+    td
+//-------------------------------------------------------------------------------//
+
+
+
+
+
+
+//----------------------------------[ SECTIONS ]---------------------------------//
+
+//+++++++++++++++++++++Header++++++++++++++++++++++//
+header
+//++++++++++++++++++End of header++++++++++++++++++//
+
+//++++++++++++++++++++++Footer+++++++++++++++++++++//
+footer
+//++++++++++++++++++End of Footer++++++++++++++++++//
+
+main
+    #index01
+    #index02
+    #index03
+    #index04
+//-------------------------------------------------------------------------------//

@@ -14,6 +14,17 @@ echo 'lucas@lcfcompany.com.br'
 echo ''
 sleep 2
 
+###############################################################################
+### VERIFYING THE DEPENDENCIES												 ##
+###############################################################################
+if ! [ -x "$(command -v htop)" ]; then
+	echo "peba"
+	if [ -x "$(uname -a | grep ubuntu)"]; then
+		sudo apt-get update
+		sudo apt-get install htop
+	fi
+fi
+
 if ! [ -x "$(command -v sass)" ]; then
 	echo '[X] ERROR: The SASS pre compiler package is not installed!' >&2
 	exit 1
@@ -23,16 +34,21 @@ fi
 
 if ! [ -x "$(command -v pug)" ]; then
 	echo '[X] ERROR: The PUG pre compiler package is not installed!' >&2
+	exit 1
 else
 	echo '[OK] PUG is installed.'
 fi
 
 if ! [ -x "$(command -v ruby)" ]; then
 	echo '[X] ERROR: The Ruby package is not installed!' >&2
+	exit 1
 else
 	echo '[OK] Ruby is installed.'
 fi
 
+###############################################################################
+### CREATING THE DIRECTORIES												 ##
+###############################################################################
 echo ''
 echo '[..] Creating the directories'
 mkdir -p $HOME/$1/src/
@@ -46,32 +62,40 @@ fi
 echo ''
 echo '[..] Creating the remaining directories'
 mkdir -p $HOME/$1/src/ext/sass/libs
-echo '[OK] Directory ' {!$} ' created.'
+echo '[OK] Directory' !$ 'created.'
 mkdir -p $HOME/$1/src/ext/css
-echo '[OK] Directory ' !$ ' created.'
+echo '[OK] Directory !$ created.'
 mkdir -p $HOME/$1/src/ext/pug
-echo '[OK] Directory ' !$ ' created.'
+echo '[OK] Directory !$ created.'
+mkdir -p $HOME/$1/src/ext/pug/include
+echo '[OK] Directory !$ created.'
 mkdir -p $HOME/$1/src/ext/php
-echo '[OK] Directory ' !$ ' created.'
+echo '[OK] Directory !$ created.'
 mkdir -p $HOME/$1/src/ext/fonts
-echo '[OK] Directory ' !$ ' created.'
+echo '[OK] Directory !$ created.'
 mkdir -p $HOME/$1/src/ext/js
-echo '[OK] Directory ' !$ ' created.'
+echo '[OK] Directory !$ created.'
 mkdir $HOME/$1/src/img
-echo '[OK] Directory ' !$ ' created.'
+echo '[OK] Directory !$ created.'
+
+###############################################################################
+### DOWNLOADING THE BOOTSTRAP FRAMEWORK										 ##
+###############################################################################
 echo ''
 echo '[..] Configuring the files'
 echo '[..] Downloading the Bootstrap version 4'
 sudo wget --directory-prefix=$HOME/$1/src/ext/sass/ http://github.com/twbs/bootstrap/archive/v4.0.0-alpha.6.zip
 echo '[OK] Download successfully!'
 echo '[..] Extracting the Bootstrap core files'
-
 for entry in "$HOME/$1/src/ext/sass"/*.zip
 do
 	sudo unzip -d $HOME/$1/src/ext/sass $entry
 	echo '[OK] Files extracted.'
 done
 
+###############################################################################
+### CREATING THE LIBS DIRECTORY												 ##
+###############################################################################
 echo '[..] Copying the Bootstrap core files to libs directory.'
 sudo mv $HOME/$1/src/ext/sass/bootstrap-4.0.0-alpha.6/scss/* $HOME/$1/src/ext/sass/libs/
 echo '[OK] Files copied.'
@@ -80,5 +104,19 @@ sudo rm -r $HOME/$1/src/ext/sass/bootstrap-4.0.0-alpha.6
 sudo rm $HOME/$1/src/ext/sass/v4.0.0-alpha.6.zip
 echo '[OK] Zip file deleted.'
 echo '[..] Copying the SASS and PUG compiler bash scripts to ' $HOME/$s1 ' directory.'
-sudo cp -avr ./compile_sass.sh ./compile_pug.sh $HOME/$1/
+sudo cp -avr ./exec_scripts/compile_sass.sh ./exec_scripts/compile_pug.sh $HOME/$1/
 echo '[OK] Compiler files copied!'
+echo '[..] Creating some files.'
+touch $HOME/$1/src/ext/sass/core.sass
+touch $HOME/$1/src/ext/sass/variables.sass
+touch $HOME/$1/src/ext/pug/index.pug
+touch $HOME/$1/src/ext/pug/include/footer.pug
+touch $HOME/$1/src/ext/pug/include/header.pug
+touch $HOME/$1/src/ext/pug/include/index_main.pug
+touch $HOME/$1/src/ext/js/core.js
+echo '[..] Writing the core.sass file.'
+cat ./config/sass_config.txt >> $HOME/$1/src/ext/sass/core.sass
+echo '[OK] DONE.'
+echo '[..] Writing the pug file.'
+cat ./config/pug_config.txt >> $HOME/$1/src/ext/pug/index.pug
+echo '[OK] DONE.'
