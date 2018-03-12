@@ -2,7 +2,7 @@
 ###### A simple bash shell script to make things easier in the front end developer's life.
 
 ## About this project
-coming soon
+This script initialize and creates all project directories and verifys if all dependencies are installed to develop any web front end project.  
 
 ## Geting Started
 coming soon
