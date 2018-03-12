@@ -1,10 +1,13 @@
+#!/usr/bin/env bash
 ##	FRONT END WEB PROJECT MANAGER
 ##	This script initialize and creates all project directories and
 ##	verifys if all dependencies are installed.
 ##
 ## SCRIPT WRITTEN BY LUCAS FONSECA DOS SANTOS.
+# Reset
+source config/config.sh
 reset
-echo '+==================================================+'
+echo -e "${IRED}+==================================================+"
 echo '+          FRONT END WEB PROJECT MANAGER           +'
 echo '+           by Lucas Fonseca dos Santos            +'
 echo '+==================================================+'
@@ -13,19 +16,25 @@ echo 'Script written by Lucas Fonseca dos Santos.'
 echo 'lucas@lcfcompany.com.br'
 echo ''
 sleep 2
-
 ###############################################################################
 ### VERIFYING THE DEPENDENCIES												 ##
 ###############################################################################
+if ! [ -x "$(command -v htop)" ]; then
+	echo -e ${ERROR_MESSAGE} 'sokdf'
+	#case the system is ubuntu
+	
+else
+	echo '[OK] Ruby is installed.'
+fi
 if ! [ -x "$(command -v ruby)" ]; then
-	echo '[X] ERROR: The Ruby package is not installed!' >&2
+	echo -e ${ERROR_MESSAGE} "The Ruby package is not installed!" >&2
 	#case the system is ubuntu
 	if [ -x "$(uname -a | grep ubuntu)"]; then
 		sudo apt-get update
 		sudo apt-get install ruby
 	fi
 else
-	echo '[OK] Ruby is installed.'
+	echo -e ${SUCCESSFULLY_MESSAGE} "Ruby is installed."
 fi
 
 if ! [ -x "$(command -v nodejs)" ]; then
@@ -46,7 +55,7 @@ if ! [ -x "$(command -v sass)" ]; then
 		sudo gem install sass
 	fi
 else
-	echo '[ OK] SASS is installed.'
+	echo '[OK] SASS is installed.'
 fi
 
 if ! [ -x "$(command -v pug)" ]; then
