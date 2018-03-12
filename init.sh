@@ -13,7 +13,7 @@ echo '+           by Lucas Fonseca dos Santos            +'
 echo '+==================================================+'
 echo ''
 echo 'Script written by Lucas Fonseca dos Santos.'
-echo 'lucas@lcfcompany.com.br ${RESET}'
+echo 'lucas@lcfcompany.com.br'${RESET}
 echo ''
 sleep 2
 ###############################################################################
@@ -25,10 +25,10 @@ if ! [ -x "$(command -v ruby)" ]; then
 	if [ -x "$(cat /etc/*-release | grep ubuntu)" ]; then
 		sudo apt-get update
 		sudo apt-get install ruby
-	else if [ -x "$(cat /etc/*-release | grep arch)" ]; then
+	elif [ -x "$(cat /etc/*-release | grep arch)" ]; then
 		#arch linux case
 		sudo pacman -S ruby
-	if [ -x "$(cat /etc/*-release | grep fedora)" ]; then
+	elif [ -x "$(cat /etc/*-release | grep fedora)" ]; then
 		#Fedora case
 		sudo yum -y install ruby
 	fi
@@ -43,10 +43,10 @@ if ! [ -x "$(command -v nodejs)" ]; then
 		#Ubuntu case
 		sudo apt-get update
 		sudo apt-get install nodejs
-	else if [ -x "$(cat /etc/*-release | grep arch)" ]; then
+	elif [ -x "$(cat /etc/*-release | grep arch)" ]; then
 		#Arch Linux case
 		sudo pacman -S nodejs npm
-	else if [ -x "$(cat /etc/*-release | grep fedora)" ]; then
+	elif [ -x "$(cat /etc/*-release | grep fedora)" ]; then
 		#Fedora case
 		sudo yum -y install nodejs npm
 	fi
@@ -60,10 +60,10 @@ if ! [ -x "$(command -v npm)" ]; then
 	if [ -x "$(cat /etc/*-release | grep ubuntu)" ]; then
 		sudo apt-get update
 		sudo apt-get install npm
-	else if [ -x "$(cat /etc/*-release | grep arch)" ]; then
+	elif [ -x "$(cat /etc/*-release | grep arch)" ]; then
 		#arch linux case
 		sudo pacman -S npm
-	if [ -x "$(cat /etc/*-release | grep fedora)" ]; then
+	elif [ -x "$(cat /etc/*-release | grep fedora)" ]; then
 		#Fedora case
 		sudo yum -y install npm
 	fi
@@ -103,7 +103,7 @@ echo ''
 echo -e ${INFORM_MESSAGE} "Creating the remaining directories."
 echo -e ${INFORM_MESSAGE} "Creating the libs/ directory: $HOME/$1/ext/sass/libs/."
 mkdir -p $HOME/$1/src/ext/sass/libs
-echo -e ${SUCCESSFULLY_MESSAGE} "Done."
+echo -e ${SUCCESSFULLY_MESSAGE} "Done {!$}."
 echo -e ${INFORM_MESSAGE} "Creating the css/ directory: $HOME/$1/ext/css/."
 mkdir -p $HOME/$1/src/ext/css
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
@@ -133,12 +133,14 @@ echo ''
 echo -e ${INFORM_MESSAGE} "Configuring the files."
 echo -e ${INFORM_MESSAGE} "Downloading the bootstrap framework version 4 from github.com/bootstrap."
 sudo wget --directory-prefix=$HOME/$1/src/ext/sass/ http://github.com/twbs/bootstrap/archive/v4.0.0-alpha.6.zip
+echo ''
 echo -e ${SUCCESSFULLY_MESSAGE} "Download successfully."
 echo -e ${INFORM_MESSAGE} "Extracting the bootstrap core files."
 echo ''
 for entry in "$HOME/$1/src/ext/sass"/*.zip
 do
 	sudo unzip -d $HOME/$1/src/ext/sass $entry
+	echo ''
 	echo -e ${SUCCESSFULLY_MESSAGE} "Files extracted."
 done
 
@@ -166,12 +168,21 @@ echo -e ${SUCCESSFULLY_MESSAGE} "Compiler bash script files copied!"
 ###############################################################################
 echo -e ${INFORM_MESSAGE} "Creating some files."
 touch $HOME/$1/src/ext/sass/core.sass
+echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 touch $HOME/$1/src/ext/sass/variables.sass
+echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 touch $HOME/$1/src/ext/pug/index.pug
+echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 touch $HOME/$1/src/ext/pug/include/footer.pug
+echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 touch $HOME/$1/src/ext/pug/include/header.pug
+echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 touch $HOME/$1/src/ext/pug/include/index_main.pug
+echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 touch $HOME/$1/src/ext/js/core.js
+echo -e ${SUCCESSFULLY_MESSAGE} "Done."
+touch $HOME/$1/src/index.html
+echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 
 ###############################################################################
 ### WRITING FILES															 ##
@@ -182,3 +193,12 @@ echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 echo -e ${INFORM_MESSAGE} "Making the PUG file."
 cat ./config/pug_config.txt >> $HOME/$1/src/ext/pug/index.pug
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
+echo -e ${INFORM_MESSAGE} "Moving to " $1 " directory."
+echo ''
+echo ''
+echo ''
+echo -e ${SUCCESSFULLY_MESSAGE} "PAY ATTENTION: YOUR PROJECT DIRECTORY IS $HOME/$1. "
+echo -e ${SUCCESSFULLY_MESSAGE} "THANK YOU FOR USING THIS. "
+echo -e ${SUCCESSFULLY_MESSAGE} "ENJOY IT! "
+echo -e ${SUCCESSFULLY_MESSAGE} "GOOD BYE!. "
+echo -e ${SUCCESSFULLY_MESSAGE} "LUCAS FONSECA DOS SANTOS - Web Developer. "
