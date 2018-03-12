@@ -22,11 +22,15 @@ sleep 2
 if ! [ -x "$(command -v ruby)" ]; then
 	echo -e ${ERROR_MESSAGE} "The Ruby package is not installed!" >&2
 	#case the system is ubuntu
-	if [ -x "$(uname -a | grep ubuntu)" ]; then
+	if [ -x "$(cat /etc/*-release | grep ubuntu)" ]; then
 		sudo apt-get update
 		sudo apt-get install ruby
-	else if [ -x "$(uname -a | grep arch)" ]; then
+	else if [ -x "$(cat /etc/*-release | grep arch)" ]; then
+		#arch linux case
 		sudo pacman -S ruby
+	if [ -x "$(cat /etc/*-release | grep fedora)" ]; then
+		#Fedora case
+		sudo yum -y install ruby
 	fi
 else
 	echo -e ${SUCCESSFULLY_MESSAGE} "Ruby is installed."
@@ -35,14 +39,36 @@ fi
 if ! [ -x "$(command -v nodejs)" ]; then
 	echo -e ${ERROR_MESSAGE} "The NODEjs package is not installed!" >&2
 	#case the system is ubuntu
-	if [ -x "$(uname -a | grep ubuntu)"]; then
+	if [ -x "$(cat /etc/*-release | grep ubuntu)"]; then
+		#Ubuntu case
 		sudo apt-get update
 		sudo apt-get install nodejs
-	else if [ -x "$(uname -a | grep arch)" ]; then
+	else if [ -x "$(cat /etc/*-release | grep arch)" ]; then
+		#Arch Linux case
 		sudo pacman -S nodejs npm
+	else if [ -x "$(cat /etc/*-release | grep fedora)" ]; then
+		#Fedora case
+		sudo yum -y install nodejs npm
 	fi
 else
 	echo -e ${SUCCESSFULLY_MESSAGE} "Ruby is installed."
+fi
+
+if ! [ -x "$(command -v npm)" ]; then
+	echo -e ${ERROR_MESSAGE} "The NPM package is not installed!" >&2
+	#case the system is ubuntu
+	if [ -x "$(cat /etc/*-release | grep ubuntu)" ]; then
+		sudo apt-get update
+		sudo apt-get install npm
+	else if [ -x "$(cat /etc/*-release | grep arch)" ]; then
+		#arch linux case
+		sudo pacman -S npm
+	if [ -x "$(cat /etc/*-release | grep fedora)" ]; then
+		#Fedora case
+		sudo yum -y install npm
+	fi
+else
+	echo -e ${SUCCESSFULLY_MESSAGE} "NPM package manager is installed."
 fi
 
 if ! [ -x "$(command -v sass)" ]; then
