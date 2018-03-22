@@ -83,7 +83,7 @@ fi
 
 if ! [ -x "$(command -v pug)" ]; then
 	echo -e ${ERROR_MESSAGE} "The PUG pre compiler package is not installed!" >&2
-	npm install pug-cli -g
+	sudo npm install pug-cli -g
 else
 	echo -e ${SUCCESSFULLY_MESSAGE} "PUG is installed."
 fi

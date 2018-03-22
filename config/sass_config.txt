@@ -42,9 +42,9 @@
 
 
 *
-   font-size: 100%
-   margin:    0px auto
-   padding:   0px
+    font-size: 100%
+    margin:    0px auto
+    padding:   0px
 
 
 
@@ -62,25 +62,25 @@
 
 //----------------------------------[ MIXINS ]-----------------------------------//
 @mixin transform_translateX($param)
-   transform:           translateX($param)
-   -o-transform:        translateX($param)
-   -ms-transform:       translateX($param)
-   -moz-transform:      translateX($param)
-   -webkit-transform:   translateX($param)
+    transform:           translateX($param)
+    -o-transform:        translateX($param)
+    -ms-transform:       translateX($param)
+    -moz-transform:      translateX($param)
+    -webkit-transform:   translateX($param)
 
 @mixin transform_translateY($param)
-   transform:           translateY($param)
-   -o-transform:        translateY($param)
-   -ms-transform:       translateY($param)
-   -moz-transform:      translateY($param)
-   -webkit-transform:   translateY($param)
+    transform:           translateY($param)
+    -o-transform:        translateY($param)
+    -ms-transform:       translateY($param)
+    -moz-transform:      translateY($param)
+    -webkit-transform:   translateY($param)
 
 @mixin border_radius($param)
-   border-radius:         $param
-   -o-border-radius:      $param
-   -ms-border-radius:     $param
-   -moz-border-radius:    $param
-   -webkit-border-radius: $param
+    border-radius:         $param
+    -o-border-radius:      $param
+    -ms-border-radius:     $param
+    -moz-border-radius:    $param
+    -webkit-border-radius: $param
 
 @mixin transform_rotate($param)
     transform: rotate($param)
@@ -90,25 +90,25 @@
     -webkit--transform: rotate($param)
 
 @mixin gradient_background($param1, $param2, $param3)
-   background: $param2
-   linear-gradient($param1, $param2 , $param3)
-   -o-linear-gradient($param1, $param2 , $param3)
-   -ms-linear-gradient($param1, $param2 , $param3)
-   -moz-linear-gradient($param1, $param2 , $param3)
-   -webkit-linear-gradient($param1, $param2 , $param3) 
+    background: $param2
+    linear-gradient($param1, $param2 , $param3)
+    -o-linear-gradient($param1, $param2 , $param3)
+    -ms-linear-gradient($param1, $param2 , $param3)
+    -moz-linear-gradient($param1, $param2 , $param3)
+    -webkit-linear-gradient($param1, $param2 , $param3) 
 
 @mixin filter($param)
-   filter:         $param
-   -o-filter:      $param
-   -ms-filter:     $param
-   -moz-filter:    $param
-   -webkit-filter: $param
+    filter:         $param
+    -o-filter:      $param
+    -ms-filter:     $param
+    -moz-filter:    $param
+    -webkit-filter: $param
 
 @mixin responsive_system($param1, $param2, $param3, $param4)
-   @extend .col-lg-#{$param1}
-   @extend .col-md-#{$param2}
-   @extend .col-sm-#{$param3}
-   @extend .col-xs-#{$param4}
+    @extend .col-lg-#{$param1}
+    @extend .col-md-#{$param2}
+    @extend .col-sm-#{$param3}
+    @extend .col-xs-#{$param4}
 //-------------------------------------------------------------------------------//
 
 
@@ -134,11 +134,11 @@ a
 
 //----------------------------------[ SUPERCLASS ]-------------------------------//
 .transitions
-   transition:          $__ANIMATION__TIME__
-   -o-transition:       $__ANIMATION__TIME__
-   -ms-transition:      $__ANIMATION__TIME__
-   -moz-transition:     $__ANIMATION__TIME__
-   -webkit-transition:  $__ANIMATION__TIME__
+    transition:          $__ANIMATION__TIME__
+    -o-transition:       $__ANIMATION__TIME__
+    -ms-transition:      $__ANIMATION__TIME__
+    -moz-transition:     $__ANIMATION__TIME__
+    -webkit-transition:  $__ANIMATION__TIME__
 
 .content
     @extend .container
@@ -181,4 +181,73 @@ main
     #index02
     #index03
     #index04
+//-------------------------------------------------------------------------------//
+
+
+
+
+
+//----------------------------------[ RESPONSIVE COND. ]-------------------------//
+//@media screen and (min-width: 1921px)
+    ///[FONTS]////////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////////////
+
+//@media screen and (max-width: 1750px) and (min-width: 1550px)
+    ///[FONTS]////////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////////////
+
+//@media screen and (max-width: 1549px) and (min-width: 1350px)
+    ///[FONTS]////////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////////////
+
+//@media screen and (max-width: 1349px) and (min-width: 1200px)
+    ///[FONTS]////////////////////////////////////////////////////////
+    
+    ///[HEADER]///////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////////////
+
+//@media screen and (max-width: 1199px) and (min-width: 992px)
+    ///[FONTS]////////////////////////////////////////////////////////
+
+    ///[HEADER]///////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////////////
+
+//@media screen and (max-width: 991px) and (min-width: 768px)
+    ///[FONTS]////////////////////////////////////////////////////////
+
+    ///[HEADER]///////////////////////////////////////////////////////
+    
+    //////////////////////////////////////////////////////////////////
+
+//@media screen and (max-width: 767px) and (min-width: 550px)
+    ///[FONTS]////////////////////////////////////////////////////////
+
+    ///[HEADER]///////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////////////
+
+//@media screen and (max-width: 549px) and (min-width: 350px)
+    ///[FONTS]////////////////////////////////////////////////////////
+
+    ///[HEADER]///////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////////////
+
+//@media screen and (max-width: 349px)
+    ///[FONTS]////////////////////////////////////////////////////////
+    ///[HEADER]///////////////////////////////////////////////////////
+
+    ///[INDEX03]//////////////////////////////////////////////////////
+
+    ///[FORMS]////////////////////////////////////////////////////////
+
+    ///[FOOTER]///////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////////////
+
 //-------------------------------------------------------------------------------//
