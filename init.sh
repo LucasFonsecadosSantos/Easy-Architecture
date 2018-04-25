@@ -192,6 +192,7 @@ echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 ###############################################################################
 echo -e ${INFORM_MESSAGE} "Making the core.sass file.."
 cat ./config/sass_config.txt >> $HOME/$1/src/ext/sass/core.sass
+cat ./config/sass_variable_config.txt >> $HOME/$1/src/ext/sass/variables.sass
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 echo -e ${INFORM_MESSAGE} "Making the PUG file."
 cat ./config/pug_config.txt >> $HOME/$1/src/ext/pug/index.pug
