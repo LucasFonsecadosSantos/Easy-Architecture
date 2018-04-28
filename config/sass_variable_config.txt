@@ -4,7 +4,6 @@
 ///                                                                             ///
 /// [PROJECT]: Name: null                                                       ///
 ///            URL:  null                                                       ///
-///            GIT:  <Link não disponivel. GIT server privado>                  ///
 /// +-------------------------------------------------------------------------+ ///
 ///                                                                             ///
 /// [DEVELOPMENT]:  Code Developer:   Lucas Fonseca dos Santos.                 ///

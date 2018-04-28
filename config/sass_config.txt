@@ -4,7 +4,6 @@
 ///                                                                             ///
 /// [PROJECT]: Name: null                                                       ///
 ///            URL:  null                                                       ///
-///            GIT:  <Link não disponivel. GIT server privado>                  ///
 /// +-------------------------------------------------------------------------+ ///
 ///                                                                             ///
 /// [DEVELOPMENT]:  Code Developer:   Lucas Fonseca dos Santos.                 ///
@@ -91,11 +90,11 @@
 
 @mixin gradient_background($param1, $param2, $param3)
     background: $param2
-    linear-gradient($param1, $param2 , $param3)
-    -o-linear-gradient($param1, $param2 , $param3)
-    -ms-linear-gradient($param1, $param2 , $param3)
-    -moz-linear-gradient($param1, $param2 , $param3)
-    -webkit-linear-gradient($param1, $param2 , $param3) 
+    background: linear-gradient($param1, $param2 , $param3)
+    background: -o-linear-gradient($param1, $param2 , $param3)
+    background: -ms-linear-gradient($param1, $param2 , $param3)
+    background: -moz-linear-gradient($param1, $param2 , $param3)
+    background: -webkit-linear-gradient($param1, $param2 , $param3) 
 
 @mixin filter($param)
     filter:         $param
