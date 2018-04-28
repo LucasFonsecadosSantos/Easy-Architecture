@@ -23,5 +23,5 @@ echo '+--------------------------------------------------+'
 echo ''
 reset
 echo '+--[COMPILING THE FILES]---------------------------+'
-sudo sass --watch src/ext/sass/*.sass:src/ext/css
+sudo sass --watch src/ext/sass:src/ext/css
 echo '+--------------------------------------------------+'
