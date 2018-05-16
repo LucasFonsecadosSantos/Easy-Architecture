@@ -23,27 +23,27 @@ Continuing then
 
 ```
 $ sudo chmod +x init.sh compile_sass.sh compile_pug.sh
-$ ./init.sh <project_name>
+$ ./init.sh <project_name> <project_path>
 ```
 
 Where the project_name is your project name rs.
 The project directory will be created in:
 
 ```
-$ $HOME/project_name
+$ <project_path>/project_name
 ```
-Where $HOME is your main directory as: /home/user.
+Where project path is your main directory.
 For access the project:
 
 ```
-$ cd $HOME/project_name
+$ cd <project_path>/project_name
 ```
 
 ## Execute the SASS and PUG compiler
 In project directory
 
 ```
-$HOME/project_name
+<project_path>/project_name
 ```
 
 execute the following bash scripts:

@@ -48,10 +48,10 @@ if ! [ -x "$(command -v nodejs)" ]; then
 		sudo apt-get install nodejs
 	elif [ -x "$(cat /etc/*-release | grep arch)" ]; then
 		#Arch Linux case
-		sudo pacman -S nodejs npm
+		sudo pacman -S nodejs
 	elif [ -x "$(cat /etc/*-release | grep fedora)" ]; then
 		#Fedora case
-		sudo yum -y install nodejs npm
+		sudo yum -y install nodejs
 	fi
 else
 	echo -e ${SUCCESSFULLY_MESSAGE} "Ruby is installed."
@@ -94,39 +94,39 @@ fi
 ###############################################################################
 echo ''
 echo -e ${INFORM_MESSAGE} "Creating the directories."
-mkdir -p $HOME/$1/src/
+mkdir -p $2/$1/src/
 
-if [ -d $HOME/$1 ]; then
-	echo -e ${SUCCESSFULLY_MESSAGE} "The project main directory was successfully created in: ." $HOME/$1
+if [ -d $2/$1 ]; then
+	echo -e ${SUCCESSFULLY_MESSAGE} "The project main directory was successfully created in: ." $2/$1
 else
 	echo -e ${ERROR_MESSAGE} "There was some problem with the directories creation."
 fi
 
 echo ''
 echo -e ${INFORM_MESSAGE} "Creating the remaining directories."
-echo -e ${INFORM_MESSAGE} "Creating the libs/ directory: $HOME/$1/ext/sass/libs/."
-mkdir -p $HOME/$1/src/ext/sass/libs
+echo -e ${INFORM_MESSAGE} "Creating the libs/ directory: $2/$1/ext/sass/libs/."
+mkdir -p $2/$1/src/ext/sass/libs
 echo -e ${SUCCESSFULLY_MESSAGE} "Done {!$}."
-echo -e ${INFORM_MESSAGE} "Creating the css/ directory: $HOME/$1/ext/css/."
-mkdir -p $HOME/$1/src/ext/css
+echo -e ${INFORM_MESSAGE} "Creating the css/ directory: $2/$1/ext/css/."
+mkdir -p $2/$1/src/ext/css
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
-echo -e ${INFORM_MESSAGE} "Creating the pug/ directory: $HOME/$1/ext/pug."
-mkdir -p $HOME/$1/src/ext/pug
+echo -e ${INFORM_MESSAGE} "Creating the pug/ directory: $2/$1/ext/pug."
+mkdir -p $2/$1/src/ext/pug
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
-echo -e ${INFORM_MESSAGE} "Creating the include/ directory: $HOME/$1/ext/pug/include/."
-mkdir -p $HOME/$1/src/ext/pug/include
+echo -e ${INFORM_MESSAGE} "Creating the include/ directory: $2/$1/ext/pug/include/."
+mkdir -p $2/$1/src/ext/pug/include
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
-echo -e ${INFORM_MESSAGE} "Creating the php/ directory: $HOME/$1/ext/php/."
-mkdir -p $HOME/$1/src/ext/php
+echo -e ${INFORM_MESSAGE} "Creating the php/ directory: $2/$1/ext/php/."
+mkdir -p $2/$1/src/ext/php
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
-echo -e ${INFORM_MESSAGE} "Creating the fonts/ directory: $HOME/$1/ext/fonts/."
-mkdir -p $HOME/$1/src/ext/fonts
+echo -e ${INFORM_MESSAGE} "Creating the fonts/ directory: $2/$1/ext/fonts/."
+mkdir -p $2/$1/src/ext/fonts
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
-echo -e ${INFORM_MESSAGE} "Creating the js/ directory: $HOME/$1/ext/js/."
-mkdir -p $HOME/$1/src/ext/js
+echo -e ${INFORM_MESSAGE} "Creating the js/ directory: $2/$1/ext/js/."
+mkdir -p $2/$1/src/ext/js
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
-echo -e ${INFORM_MESSAGE} "Creating the img/ directory: $HOME/$1/ext/img/."
-mkdir $HOME/$1/src/img
+echo -e ${INFORM_MESSAGE} "Creating the img/ directory: $2/$1/ext/img/."
+mkdir $2/$1/src/img
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 
 ###############################################################################
@@ -135,14 +135,14 @@ echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 echo ''
 echo -e ${INFORM_MESSAGE} "Configuring the files."
 echo -e ${INFORM_MESSAGE} "Downloading the bootstrap framework version 4 from github.com/bootstrap."
-sudo wget --directory-prefix=$HOME/$1/src/ext/sass/ http://github.com/twbs/bootstrap/archive/v4.0.0-alpha.6.zip
+sudo wget --directory-prefix=$2/$1/src/ext/sass/ http://github.com/twbs/bootstrap/archive/v4.0.0-alpha.6.zip
 echo ''
 echo -e ${SUCCESSFULLY_MESSAGE} "Download successfully."
 echo -e ${INFORM_MESSAGE} "Extracting the bootstrap core files."
 echo ''
-for entry in "$HOME/$1/src/ext/sass"/*.zip
+for entry in "$2/$1/src/ext/sass"/*.zip
 do
-	sudo unzip -d $HOME/$1/src/ext/sass $entry
+	sudo unzip -d $2/$1/src/ext/sass $entry
 	echo ''
 	echo -e ${SUCCESSFULLY_MESSAGE} "Files extracted."
 done
@@ -152,56 +152,56 @@ done
 ###############################################################################
 echo ''
 echo -e ${INFORM_MESSAGE} "Copying the Bootstrap core files to libs directory."
-sudo mv $HOME/$1/src/ext/sass/bootstrap-4.0.0-alpha.6/scss/* $HOME/$1/src/ext/sass/libs/
+sudo mv $2/$1/src/ext/sass/bootstrap-4.0.0-alpha.6/scss/* $2/$1/src/ext/sass/libs/
 echo -e ${SUCCESSFULLY_MESSAGE} "Files copied."
 echo -e ${INFORM_MESSAGE} "Deleting the zip source files."
-sudo rm -r $HOME/$1/src/ext/sass/bootstrap-4.0.0-alpha.6
-sudo rm $HOME/$1/src/ext/sass/v4.0.0-alpha.6.zip
+sudo rm -r $2/$1/src/ext/sass/bootstrap-4.0.0-alpha.6
+sudo rm $2/$1/src/ext/sass/v4.0.0-alpha.6.zip
 echo -e ${SUCCESSFULLY_MESSAGE} "Zip file deleted."
 
 ###############################################################################
 ### COPYING SOME FILES														 ##
 ###############################################################################
-echo -e ${INFORM_MESSAGE} "Copying the SASS and PUG compiler bash scripts to $HOME/$1 directory."
-sudo cp -avr ./exec_scripts/compile_sass.sh ./exec_scripts/compile_pug.sh $HOME/$1/
+echo -e ${INFORM_MESSAGE} "Copying the SASS and PUG compiler bash scripts to $2/$1 directory."
+sudo cp -avr ./exec_scripts/compile_sass.sh ./exec_scripts/compile_pug.sh $2/$1/
 echo -e ${SUCCESSFULLY_MESSAGE} "Compiler bash script files copied!"
 
 ###############################################################################
 ### CREATUBG SOME FILES														 ##
 ###############################################################################
 echo -e ${INFORM_MESSAGE} "Creating some files."
-touch $HOME/$1/src/ext/sass/core.sass
+touch $2/$1/src/ext/sass/core.sass
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
-touch $HOME/$1/src/ext/sass/variables.sass
+touch $2/$1/src/ext/sass/variables.sass
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
-touch $HOME/$1/src/ext/pug/index.pug
+touch $2/$1/src/ext/pug/index.pug
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
-touch $HOME/$1/src/ext/pug/include/footer.pug
+touch $2/$1/src/ext/pug/include/footer.pug
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
-touch $HOME/$1/src/ext/pug/include/header.pug
+touch $2/$1/src/ext/pug/include/header.pug
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
-touch $HOME/$1/src/ext/pug/include/index_main.pug
+touch $2/$1/src/ext/pug/include/index_main.pug
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
-touch $HOME/$1/src/ext/js/core.js
+touch $2/$1/src/ext/js/core.js
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
-touch $HOME/$1/src/index.html
+touch $2/$1/src/index.html
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 
 ###############################################################################
 ### WRITING FILES															 ##
 ###############################################################################
 echo -e ${INFORM_MESSAGE} "Making the core.sass file.."
-cat ./config/sass_config.txt >> $HOME/$1/src/ext/sass/core.sass
-cat ./config/sass_variable_config.txt >> $HOME/$1/src/ext/sass/variables.sass
+cat ./config/sass_config.txt >> $2/$1/src/ext/sass/core.sass
+cat ./config/sass_variable_config.txt >> $2/$1/src/ext/sass/variables.sass
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 echo -e ${INFORM_MESSAGE} "Making the PUG file."
-cat ./config/pug_config.txt >> $HOME/$1/src/ext/pug/index.pug
+cat ./config/pug_config.txt >> $2/$1/src/ext/pug/index.pug
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 echo -e ${INFORM_MESSAGE} "Moving to " $1 " directory."
 echo ''
 echo ''
 echo ''
-echo -e ${SUCCESSFULLY_MESSAGE} "PAY ATTENTION: YOUR PROJECT DIRECTORY IS $HOME/$1. "
+echo -e ${SUCCESSFULLY_MESSAGE} "PAY ATTENTION: YOUR PROJECT DIRECTORY IS $2/$1. "
 echo -e ${SUCCESSFULLY_MESSAGE} "THANK YOU FOR USING THIS. "
 echo -e ${SUCCESSFULLY_MESSAGE} "ENJOY IT! "
 echo -e ${SUCCESSFULLY_MESSAGE} "GOOD BYE!. "
