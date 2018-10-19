@@ -95,6 +95,7 @@ fi
 echo ''
 echo -e ${INFORM_MESSAGE} "Creating the directories."
 mkdir -p $2/$1/src/
+mkdir -p $2/$1/docs/
 
 if [ -d $2/$1 ]; then
 	echo -e ${SUCCESSFULLY_MESSAGE} "The project main directory was successfully created in: ." $2/$1
@@ -106,6 +107,12 @@ echo ''
 echo -e ${INFORM_MESSAGE} "Creating the remaining directories."
 echo -e ${INFORM_MESSAGE} "Creating the libs/ directory: $2/$1/ext/sass/libs/."
 mkdir -p $2/$1/src/ext/sass/libs
+echo -e ${SUCCESSFULLY_MESSAGE} "Done {!$}."
+echo -e ${INFORM_MESSAGE} "Creating the global_components/ directory: $2/$1/ext/sass/global_components/."
+mkdir -p $2/$1/src/ext/sass/global_components
+echo -e ${SUCCESSFULLY_MESSAGE} "Done {!$}."
+echo -e ${INFORM_MESSAGE} "Creating the interface/ directory: $2/$1/ext/sass/interface/."
+mkdir -p $2/$1/src/ext/sass/interface
 echo -e ${SUCCESSFULLY_MESSAGE} "Done {!$}."
 echo -e ${INFORM_MESSAGE} "Creating the css/ directory: $2/$1/ext/css/."
 mkdir -p $2/$1/src/ext/css
@@ -172,6 +179,16 @@ echo -e ${SUCCESSFULLY_MESSAGE} "Compiler bash script files copied!"
 echo -e ${INFORM_MESSAGE} "Creating some files."
 touch $2/$1/src/ext/sass/core.sass
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
+touch $2/$1/src/ext/sass/global_components/_components.sass
+echo -e ${SUCCESSFULLY_MESSAGE} "Done."
+touch $2/$1/src/ext/sass/global_components/_fonts.sass
+echo -e ${SUCCESSFULLY_MESSAGE} "Done."
+touch $2/$1/src/ext/sass/global_components/_footer.sass
+echo -e ${SUCCESSFULLY_MESSAGE} "Done."
+touch $2/$1/src/ext/sass/global_components/_header.sass
+echo -e ${SUCCESSFULLY_MESSAGE} "Done."
+touch $2/$1/src/ext/sass/interface/_index.sass
+echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 touch $2/$1/src/ext/sass/variables.sass
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 touch $2/$1/src/ext/pug/index.pug
@@ -179,8 +196,6 @@ echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 touch $2/$1/src/ext/pug/include/footer.pug
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 touch $2/$1/src/ext/pug/include/header.pug
-echo -e ${SUCCESSFULLY_MESSAGE} "Done."
-touch $2/$1/src/ext/pug/include/index_main.pug
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 touch $2/$1/src/ext/js/core.js
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
@@ -193,6 +208,10 @@ echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 echo -e ${INFORM_MESSAGE} "Making the core.sass file.."
 cat ./config/sass_config.txt >> $2/$1/src/ext/sass/core.sass
 cat ./config/sass_variable_config.txt >> $2/$1/src/ext/sass/variables.sass
+cat ./config/global_components/_components.txt >> $2/$1/src/ext/sass/global_components/_components.sass
+cat ./config/global_components/_fonts.txt >> $2/$1/src/ext/sass/global_components/_fonts.sass
+cat ./config/global_components/_footer.txt >> $2/$1/src/ext/sass/global_components/_footer.sass
+cat ./config/global_components/_header.txt >> $2/$1/src/ext/sass/global_components/_header.sass
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 echo -e ${INFORM_MESSAGE} "Making the PUG file."
 cat ./config/pug_config.txt >> $2/$1/src/ext/pug/index.pug

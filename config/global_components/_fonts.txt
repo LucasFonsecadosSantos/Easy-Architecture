@@ -32,115 +32,24 @@
 ///////////////////////////////////////////////////////////////////////////////////
 ///                              FILE INFORMATION                               ///
 ///-----------------------------------------------------------------------------///
-/// [NAME]: Core                                                                ///
-/// [CONTENT]: Responsible for all front end struct.                            ///
+/// [NAME]: Fonts                                                               ///
+/// [CONTENT]: Responsible for all system fonts definitions.                    ///
 ///////////////////////////////////////////////////////////////////////////////////
 
 
 
 
 
-*
-    font-size: 100%
-    margin:    0px auto
-    padding:   0px
-
-
-
-
-
-
-//---------------------------[ IMPORTS ]-----------------------------------------//
-@import "libs/bootstrap.scss"
-@import "variables.sass"
-//-------------------------------------------------------------------------------//
-
-
-
-
-
-//----------------------------------[ MIXINS ]-----------------------------------//
-@mixin transform_translateX($param)
-    transform:           translateX($param)
-    -o-transform:        translateX($param)
-    -ms-transform:       translateX($param)
-    -moz-transform:      translateX($param)
-    -webkit-transform:   translateX($param)
-
-@mixin transform_translateY($param)
-    transform:           translateY($param)
-    -o-transform:        translateY($param)
-    -ms-transform:       translateY($param)
-    -moz-transform:      translateY($param)
-    -webkit-transform:   translateY($param)
-
-@mixin border_radius($param)
-    border-radius:         $param
-    -o-border-radius:      $param
-    -ms-border-radius:     $param
-    -moz-border-radius:    $param
-    -webkit-border-radius: $param
-
-@mixin transform_rotate($param)
-    transform: rotate($param)
-    -o-transform: rotate($param)
-    -ms-transform: rotate($param)
-    -moz-transform: rotate($param)
-    -webkit--transform: rotate($param)
-
-@mixin gradient_background($param1, $param2, $param3)
-    background: $param2
-    background: linear-gradient($param1, $param2 , $param3)
-    background: -o-linear-gradient($param1, $param2 , $param3)
-    background: -ms-linear-gradient($param1, $param2 , $param3)
-    background: -moz-linear-gradient($param1, $param2 , $param3)
-    background: -webkit-linear-gradient($param1, $param2 , $param3) 
-
-@mixin filter($param)
-    filter:         $param
-    -o-filter:      $param
-    -ms-filter:     $param
-    -moz-filter:    $param
-    -webkit-filter: $param
-
-@mixin responsive_system($param1, $param2, $param3, $param4, $param5)
-    @extend .col-#{$param1}
-    @extend .col-sm-#{$param2}
-    @extend .col-md-#{$param3}
-    @extend .col-lg-#{$param4}
-    @extend .col-xl-#{$param5}
-//-------------------------------------------------------------------------------//
-
-
-
-
-
-
-//----------------------------------[ SUPERCLASS ]-------------------------------//
-.transitions
-    transition:          $__ANIMATION__TIME__
-    -o-transition:       $__ANIMATION__TIME__
-    -ms-transition:      $__ANIMATION__TIME__
-    -moz-transition:     $__ANIMATION__TIME__
-    -webkit-transition:  $__ANIMATION__TIME__
-
-.content
-    @extend .container
-
-.line 
-    @extend .row
-//-------------------------------------------------------------------------------//
-
-
-
-
-
-//--------------------------------[ BOOTSTRAP ]----------------------------------//
-@import "global_components/_fonts.sass"
-@import "global_components/_components.sass"
-@import "global_components/_header.sass"
-@import "global_components/_footer.sass"
-@import "interface/_index.sass"
+//----------------------------------[ FONTS ]------------------------------------//
+p
+h1
+h2
+h3
+h4
+h5
+h6
+label
+a
 //-------------------------------------------------------------------------------//
 
 
