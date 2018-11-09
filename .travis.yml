@@ -1,4 +1,8 @@
 deploy:
+    language: bash
+    sudo: true
+    os:
+       - linux
   - provider: script
     script: bash init.sh project_test_name project_path_test
     on:
