@@ -1,3 +1,6 @@
+[![Build 
+Status]([![Build 
+Status](https://travis-ci.org/LucasFonsecadosSantos/FrontEnd-WebProject-Manager.svg?branch=master)](https://travis-ci.org/LucasFonsecadosSantos/FrontEnd-WebProject-Manager))](https://travis-ci.org/LucasFonsecadosSantos/FrontEnd-WebProject-Manager)
 # FRONT END WEB PROJECT MANAGER
 ###### A simple bash shell script to make things easier in the front end developer's life.
 

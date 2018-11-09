@@ -1,0 +1,5 @@
+deploy:
+  - provider: script
+    script: bash init.sh project_test_name project_path_test
+    on:
+      branch: develop
