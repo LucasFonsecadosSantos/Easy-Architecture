@@ -22,71 +22,71 @@ sleep 2
 ###############################################################################
 ### VERIFYING THE DEPENDENCIES												 ##
 ###############################################################################
-if ! [ -x "$(command -v ruby)" ]; then
-	echo -e ${ERROR_MESSAGE} "The Ruby package is not installed!" >&2
-	#case the system is ubuntu
-	if [ -x "$(cat /etc/*-release | grep ubuntu)" ]; then
-		sudo apt-get update
-		sudo apt-get install ruby
-	elif [ -x "$(cat /etc/*-release | grep arch)" ]; then
-		#arch linux case
-		sudo pacman -S ruby
-	elif [ -x "$(cat /etc/*-release | grep fedora)" ]; then
-		#Fedora case
-		sudo yum -y install ruby
-	fi
-else
-	echo -e ${SUCCESSFULLY_MESSAGE} "Ruby is installed."
-fi
+#if ! [ -x "$(command -v ruby)" ]; then
+#	echo -e ${ERROR_MESSAGE} "The Ruby package is not installed!" >&2
+#	#case the system is ubuntu
+#	if [ -x "$(cat /etc/*-release | grep ubuntu)" ]; then
+#		sudo apt-get update
+#		sudo apt-get install ruby
+#	elif [ -x "$(cat /etc/*-release | grep arch)" ]; then
+#		#arch linux case
+#		sudo pacman -S ruby
+#	elif [ -x "$(cat /etc/*-release | grep fedora)" ]; then
+#		#Fedora case
+#		sudo yum -y install ruby
+#	fi
+#else
+#	echo -e ${SUCCESSFULLY_MESSAGE} "Ruby is installed."
+#fi
 
-if ! [ -x "$(command -v nodejs)" ]; then
-	echo -e ${ERROR_MESSAGE} "The NODEjs package is not installed!" >&2
-	#case the system is ubuntu
-	if [ -x "$(cat /etc/*-release | grep ubuntu)"]; then
-		#Ubuntu case
-		sudo apt-get update
-		sudo apt-get install nodejs
-	elif [ -x "$(cat /etc/*-release | grep arch)" ]; then
-		#Arch Linux case
-		sudo pacman -S nodejs
-	elif [ -x "$(cat /etc/*-release | grep fedora)" ]; then
-		#Fedora case
-		sudo yum -y install nodejs
-	fi
-else
-	echo -e ${SUCCESSFULLY_MESSAGE} "Ruby is installed."
-fi
+#if ! [ -x "$(command -v nodejs)" ]; then
+#	echo -e ${ERROR_MESSAGE} "The NODEjs package is not installed!" >&2
+#	#case the system is ubuntu
+#	if [ -x "$(cat /etc/*-release | grep ubuntu)"]; then
+#		#Ubuntu case
+#		sudo apt-get update
+#		sudo apt-get install nodejs
+#	elif [ -x "$(cat /etc/*-release | grep arch)" ]; then
+#		#Arch Linux case
+#		sudo pacman -S nodejs
+#	elif [ -x "$(cat /etc/*-release | grep fedora)" ]; then
+#		#Fedora case
+#		sudo yum -y install nodejs
+#	fi
+#else
+#	echo -e ${SUCCESSFULLY_MESSAGE} "Ruby is installed."
+#fi
 
-if ! [ -x "$(command -v npm)" ]; then
-	echo -e ${ERROR_MESSAGE} "The NPM package is not installed!" >&2
-	#case the system is ubuntu
-	if [ -x "$(cat /etc/*-release | grep ubuntu)" ]; then
-		sudo apt-get update
-		sudo apt-get install npm
-	elif [ -x "$(cat /etc/*-release | grep arch)" ]; then
-		#arch linux case
-		sudo pacman -S npm
-	elif [ -x "$(cat /etc/*-release | grep fedora)" ]; then
-		#Fedora case
-		sudo yum -y install npm
-	fi
-else
-	echo -e ${SUCCESSFULLY_MESSAGE} "NPM package manager is installed."
-fi
+#if ! [ -x "$(command -v npm)" ]; then
+#	echo -e ${ERROR_MESSAGE} "The NPM package is not installed!" >&2
+#	#case the system is ubuntu
+#	if [ -x "$(cat /etc/*-release | grep ubuntu)" ]; then
+#		sudo apt-get update
+#		sudo apt-get install npm
+#	elif [ -x "$(cat /etc/*-release | grep arch)" ]; then
+#		#arch linux case
+#		sudo pacman -S npm
+#	elif [ -x "$(cat /etc/*-release | grep fedora)" ]; then
+#		#Fedora case
+#		sudo yum -y install npm
+#	fi
+#else
+#	echo -e ${SUCCESSFULLY_MESSAGE} "NPM package manager is installed."
+#fi
 
-if ! [ -x "$(command -v sass)" ]; then
-	echo -e ${ERROR_MESSAGE} "The SASS pre compiler package is not installed!" >&2
-	sudo gem install sass
-else
-	echo -e ${SUCCESSFULLY_MESSAGE} "SASS is installed."
-fi
+#if ! [ -x "$(command -v sass)" ]; then
+#	echo -e ${ERROR_MESSAGE} "The SASS pre compiler package is not installed!" >&2
+#	sudo gem install sass
+#else
+#	echo -e ${SUCCESSFULLY_MESSAGE} "SASS is installed."
+#fi
 
-if ! [ -x "$(command -v pug)" ]; then
-	echo -e ${ERROR_MESSAGE} "The PUG pre compiler package is not installed!" >&2
-	sudo npm install pug-cli -g
-else
-	echo -e ${SUCCESSFULLY_MESSAGE} "PUG is installed."
-fi
+#if ! [ -x "$(command -v pug)" ]; then
+#	echo -e ${ERROR_MESSAGE} "The PUG pre compiler package is not installed!" >&2
+#	sudo npm install pug-cli -g
+#else
+#	echo -e ${SUCCESSFULLY_MESSAGE} "PUG is installed."
+#fi
 
 
 ###############################################################################
