@@ -3,3 +3,11 @@ deploy:
     script: bash init.sh project_test_name project_path_test
     on:
       branch: develop
+    before_install:
+       - sudo apt-get update
+       - sudo apt-get install -y wget unzip ruby
+       - curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+       - sudo apt-get install -y nodejs
+       - npm install -g sass
+       - npm install pug-cli -g
+
