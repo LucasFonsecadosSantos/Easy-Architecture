@@ -142,7 +142,7 @@ echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 echo ''
 echo -e ${INFORM_MESSAGE} "Configuring the files."
 echo -e ${INFORM_MESSAGE} "Downloading the bootstrap framework version 4 from github.com/bootstrap."
-sudo wget --directory-prefix=$2/$1/src/ext/sass/ http://github.com/twbs/bootstrap/archive/v4.0.0-alpha.6.zip
+sudo wget --directory-prefix=$2/$1/src/ext/sass/ https://github.com/twbs/bootstrap/archive/v4.2.1.zip
 echo ''
 echo -e ${SUCCESSFULLY_MESSAGE} "Download successfully."
 echo -e ${INFORM_MESSAGE} "Extracting the bootstrap core files."
@@ -159,11 +159,11 @@ done
 ###############################################################################
 echo ''
 echo -e ${INFORM_MESSAGE} "Copying the Bootstrap core files to libs directory."
-sudo mv $2/$1/src/ext/sass/bootstrap-4.0.0-alpha.6/scss/* $2/$1/src/ext/sass/libs/
+sudo mv $2/$1/src/ext/sass/bootstrap-4.2.1/scss/* $2/$1/src/ext/sass/libs/
 echo -e ${SUCCESSFULLY_MESSAGE} "Files copied."
 echo -e ${INFORM_MESSAGE} "Deleting the zip source files."
-sudo rm -r $2/$1/src/ext/sass/bootstrap-4.0.0-alpha.6
-sudo rm $2/$1/src/ext/sass/v4.0.0-alpha.6.zip
+sudo rm -r $2/$1/src/ext/sass/bootstrap-4.2.1
+sudo rm $2/$1/src/ext/sass/v4.2.1.zip
 echo -e ${SUCCESSFULLY_MESSAGE} "Zip file deleted."
 
 ###############################################################################

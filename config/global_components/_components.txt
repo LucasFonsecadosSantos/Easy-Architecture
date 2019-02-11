@@ -24,8 +24,8 @@
 ///   Use .content to write class .container by bootstrap and .line to write    ///
 ///   .row class by bootstrap.                                                  ///
 ///                                                                             ///
-///   Use mixin extend_grid() with the params: LG value, MD value, SM value,    ///
-///   XS value in respective order to extend grid system of bootstrap.          ///
+///   Use mixin responsive_system() with the params: LG value, MD value,        ///
+///   SM value, XS value in respective order to extend grid system of bootstrap.///
 ///                                                                             ///
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -40,16 +40,8 @@
 
 
 
-//---------------------------------[ FOOTER ]------------------------------------//
-input, textarea, select
-button
-table
-    thead
-        tr
-        td
-    tbody
-        tr
-        td
+//----------------------------------[ NAME ]-------------------------------------//
+
 //-------------------------------------------------------------------------------//
 
 
