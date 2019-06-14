@@ -178,29 +178,35 @@ echo -e ${SUCCESSFULLY_MESSAGE} "Compiler bash script files copied!"
 ###############################################################################
 echo -e ${INFORM_MESSAGE} "Creating some files."
 touch $2/$1/src/ext/sass/core.sass
-echo -e ${SUCCESSFULLY_MESSAGE} "Done."
+echo -e ${SUCCESSFULLY_MESSAGE} "File: core.sass [Done]."
 touch $2/$1/src/ext/sass/global_components/_components.sass
-echo -e ${SUCCESSFULLY_MESSAGE} "Done."
+echo -e ${SUCCESSFULLY_MESSAGE} "File: _components.sass [Done]."
 touch $2/$1/src/ext/sass/global_components/_fonts.sass
-echo -e ${SUCCESSFULLY_MESSAGE} "Done."
+echo -e ${SUCCESSFULLY_MESSAGE} "File: _fonts.sass [Done]."
 touch $2/$1/src/ext/sass/global_components/_footer.sass
-echo -e ${SUCCESSFULLY_MESSAGE} "Done."
+echo -e ${SUCCESSFULLY_MESSAGE} "File: _footer.sass [Done]."
 touch $2/$1/src/ext/sass/global_components/_header.sass
-echo -e ${SUCCESSFULLY_MESSAGE} "Done."
+echo -e ${SUCCESSFULLY_MESSAGE} "File: _header.sass [Done]."
 touch $2/$1/src/ext/sass/interface/_index.sass
-echo -e ${SUCCESSFULLY_MESSAGE} "Done."
+echo -e ${SUCCESSFULLY_MESSAGE} "File: _index.sass [Done]."
 touch $2/$1/src/ext/sass/variables.sass
-echo -e ${SUCCESSFULLY_MESSAGE} "Done."
+echo -e ${SUCCESSFULLY_MESSAGE} "File: variables.sass [Done]."
 touch $2/$1/src/ext/pug/index.pug
-echo -e ${SUCCESSFULLY_MESSAGE} "Done."
-touch $2/$1/src/ext/pug/include/footer.pug
-echo -e ${SUCCESSFULLY_MESSAGE} "Done."
-touch $2/$1/src/ext/pug/include/header.pug
-echo -e ${SUCCESSFULLY_MESSAGE} "Done."
+echo -e ${SUCCESSFULLY_MESSAGE} "File: index.pug [Done]."
+touch $2/$1/src/ext/pug/include/_footer.pug
+echo -e ${SUCCESSFULLY_MESSAGE} "File: _footer.pug [Done]."
+touch $2/$1/src/ext/pug/include/_header.pug
+echo -e ${SUCCESSFULLY_MESSAGE} "File: _header.pug [Done]."
+touch $2/$1/src/ext/pug/include/_mixins.pug
+echo -e ${SUCCESSFULLY_MESSAGE} "File: _mixins.pug [Done]."
+touch $2/$1/src/ext/pug/include/_link-imports.pug
+echo -e ${SUCCESSFULLY_MESSAGE} "File: _link-imports.pug [Done]."
+touch $2/$1/src/ext/pug/include/_js-imports.pug
+echo -e ${SUCCESSFULLY_MESSAGE} "File: _js-imports.pug [Done]."
 touch $2/$1/src/ext/js/core.js
-echo -e ${SUCCESSFULLY_MESSAGE} "Done."
+echo -e ${SUCCESSFULLY_MESSAGE} "File: core.js [Done]."
 touch $2/$1/src/index.html
-echo -e ${SUCCESSFULLY_MESSAGE} "Done."
+echo -e ${SUCCESSFULLY_MESSAGE} "File: index.html [Done]."
 
 ###############################################################################
 ### WRITING FILES															 ##
@@ -215,6 +221,9 @@ cat ./config/global_components/_header.txt >> $2/$1/src/ext/sass/global_componen
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 echo -e ${INFORM_MESSAGE} "Making the PUG file."
 cat ./config/pug_config.txt >> $2/$1/src/ext/pug/index.pug
+cat ./config/js-imports_pug_config.txt >> $2/$1/src/ext/pug/include/_js-imports.pug
+cat ./config/link-imports_pug_config.txt >> $2/$1/src/ext/pug/include/_link-imports.pug
+cat ./config/mixins_pug_config.txt >> $2/$1/src/ext/pug/include/_mixins.pug
 echo -e ${SUCCESSFULLY_MESSAGE} "Done."
 echo -e ${INFORM_MESSAGE} "Moving to " $1 " directory."
 echo ''
