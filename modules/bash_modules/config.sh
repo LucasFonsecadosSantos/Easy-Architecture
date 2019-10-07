@@ -1,13 +1,22 @@
 #!/usr/bin/env bash
-##
-##
-##	FRONT END WEB PROJECT MANAGER
-##	This script initialize and creates all project directories and
-##	verifys if all dependencies are installed.
-##
-## SCRIPT WRITTEN BY LUCAS FONSECA DOS SANTOS.
-##
-##
+################################################################
+##                                                            ##
+##                                                            ##
+##  _____                                                     ##
+## | ____|__ _ ___ _   _                                      ##
+## |  _| / _` / __| | | |                                     ##
+## | |__| (_| \__ \ |_| |                                     ##
+## |_____\__,_|___/\__, |                                     ##
+##     _           |___/   _ _            _                   ##
+##    / \   _ __ ___| |__ (_) |_ ___  ___| |_ _   _ _ __ ___  ##
+##   / _ \ | '__/ __| '_ \| | __/ _ \/ __| __| | | | '__/ _ \ ##
+##  / ___ \| | | (__| | | | | ||  __/ (__| |_| |_| | | |  __/ ##
+## /_/   \_\_|  \___|_| |_|_|\__\___|\___|\__|\__,_|_|  \___| ##
+##                                                            ##
+##                                                            ##
+## SCRIPT WRITTEN BY LUCAS FONSECA DOS SANTOS.                ##
+##                                                            ##
+################################################################
 RESET='\033[0m'       # Text Reset
 
 # Regular Colors
